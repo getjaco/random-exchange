@@ -45,7 +45,7 @@ description() ->
 
 route(_X=#exchange{name = Name},
       _D=#delivery{message = #basic_message{routing_keys = Routes}}) ->
-    Matches = rabbit_router:match_routing_key(Name, Routes),
+    Matches = rabbit_router:match_routing_key(Name, ['_']),
     %io:format("exchange: ~p~n", [X]),
     %io:format("delivery: ~p~n", [D]),
     %io:format("matches: ~p~n", [Matches]),
